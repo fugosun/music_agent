@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        input[type="text"] { padding: 10px; width: 300px; margin: 10px; }
+        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Generate Your Music</h1>
+    <form action="/generate" method="POST">
+        <input type="text" name="prompt" placeholder="Enter music style, e.g., 'bass-heavy phonk in Brazilian style'">
+        <input type="submit" value="Create Track">
+    </form>
+    <div id="result">
+        {% if track_url %}
+            <audio controls>
+                <source src="{{ track_url }}" type="audio/mpeg">
+            </audio>
+        {% endif %}
+    </div>
+</body>
+</html>
