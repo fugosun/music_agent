@@ -58,3 +58,4 @@ async def callback_handler(request: Request):
     status = data.get("code")
     print(f"Callback: task_id={task_id}, status={status}")
     return {"status": "received"}
+app.mount("/static", StaticFiles(directory="static"), name="static")
