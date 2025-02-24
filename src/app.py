@@ -8,12 +8,11 @@ from dotenv import load_dotenv
 
 load_dotenv()  # Загружает переменные из .env
 
-
 # Создаем приложение FastAPI
 app = FastAPI()
 
 # Настройка статических файлов
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="src/static"), name="static")
 
 # Настройка шаблонов
 templates = Jinja2Templates(directory="templates")
@@ -58,4 +57,3 @@ async def callback_handler(request: Request):
     status = data.get("code")
     print(f"Callback: task_id={task_id}, status={status}")
     return {"status": "received"}
-app.mount("/static", StaticFiles(directory="static"), name="static")
